@@ -1,8 +1,9 @@
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
-
+        UtilSearch match = new UtilSearch();
         Set<String> listNameOne = new HashSet<>();
         listNameOne.add("Simon");
         listNameOne.add("Martin");
@@ -32,27 +33,11 @@ public class Main {
 
         Set<String> listNameThree = new HashSet<>();
 
-        findMatches(listNameOne, listNameTwo, listNameThree);
+        int iteration = match.searchMatches(listNameOne, listNameTwo, listNameThree);
 
-        drawCollection(listNameOne);
-        drawCollection(listNameTwo);
-        drawCollection(listNameThree);
-    }
-
-    static void findMatches(Collection<String> listOne,
-                            Collection<String> listTwo,
-                            Collection<String> listThree) {
-        for (String str : listTwo) {
-            if (listOne.contains(str)) {
-                listThree.add(str);
-            }
-        }
-    }
-
-    static void drawCollection(Collection<String> collection) {
-        for (String name : collection) {
-            System.out.print(" " + name);
-        }
-        System.out.println(" ");
+        System.out.print("Collection first:\t\t" + listNameOne + "\n"
+                + "Collection two:\t\t\t" + listNameTwo + "\n"
+                + "Collection three:\t\t" + listNameThree + "\n"
+                + "Number of iterations:\t" + iteration);
     }
 }
