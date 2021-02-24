@@ -1,16 +1,16 @@
 import java.util.*;
 
-public class Util {
+public class UtilSearch {
 
     public int searchMatches(Collection<String> listNameOne,
                              Collection<String> listNameTwo,
                              Collection<String> listNameThree) {
-        int iterations = 0;
-        Set<String> cloneList = new HashSet<>(listNameTwo);
-        Iterator<String> enumListOne = listNameOne.iterator();
 
+        Set<String> cloneList = new HashSet<>(listNameTwo);
+        int iterations = 0;
         boolean find;
 
+        Iterator<String> enumListOne = listNameOne.iterator();
         while (enumListOne.hasNext()) {
             String firstName = enumListOne.next();
             find = false;
