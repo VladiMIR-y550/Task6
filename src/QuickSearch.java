@@ -16,30 +16,27 @@ public class QuickSearch {
         String emptyValue = "";
 
         if (listNameOne.size() > listNameTwo.size()) {
+            second = new ArrayList<>(listNameTwo);
             first = new HashMap<>();
             for (String one : listNameOne) {
+                count++;
                 first.put(one, emptyValue);
             }
-            second = new ArrayList<>(listNameTwo);
         } else {
+            second = new ArrayList<>(listNameOne);
             first = new HashMap<>();
             for (String two : listNameTwo) {
+                count++;
                 first.put(two, emptyValue);
             }
-            second = new ArrayList<>(listNameOne);
         }
 
         for (String key : second) {
             count++;
-            if (findMatches(first, key)) {
+            if (first.get(key) != null) {
                 tempList.add(key);
             }
         }
         return tempList;
-    }
-
-    static boolean findMatches(Map<String, String> first, String key) {
-        count++;
-        return first.get(key) != null;
     }
 }
