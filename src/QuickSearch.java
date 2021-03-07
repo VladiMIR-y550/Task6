@@ -7,31 +7,31 @@ public class QuickSearch {
         return count;
     }
 
-    static Collection<String> getMatches(Set<String> listNameOne, Set<String> listNameTwo) {
+    static <T> List<Object> getMatches(Collection<T> listNameOne, Collection<T> listNameTwo) {
 
-        Map<String, String> first;
-        List<String> second;
-        List<String> tempList = new ArrayList<>();
+        Map<Object, String> first;
+        List<T> second;
+        List<Object> tempList = new ArrayList<>();
 
         String emptyValue = "";
 
         if (listNameOne.size() > listNameTwo.size()) {
             second = new ArrayList<>(listNameTwo);
             first = new HashMap<>();
-            for (String one : listNameOne) {
+            for (Object one : listNameOne) {
                 count++;
                 first.put(one, emptyValue);
             }
         } else {
             second = new ArrayList<>(listNameOne);
             first = new HashMap<>();
-            for (String two : listNameTwo) {
+            for (Object two : listNameTwo) {
                 count++;
                 first.put(two, emptyValue);
             }
         }
 
-        for (String key : second) {
+        for (Object key : second) {
             count++;
             if (first.get(key) != null) {
                 tempList.add(key);
